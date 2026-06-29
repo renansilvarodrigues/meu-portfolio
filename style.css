@@ -1,3 +1,4 @@
+/* RESET E CONFIGURAÇÕES GERAIS */
 * {
     margin: 0;
     padding: 0;
@@ -5,15 +6,25 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Força o HTML e o Body a olharem para a altura total da tela */
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: #f4f7f6;
     color: #333;
     line-height: 1.6;
-    padding-top: 90px; 
+    padding-top: 80px; /
     transition: background-color 0.3s, color 0.3s;
+
+    /* ESTRUTURA FLEXBOX: Resolve o problema do footer subir */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Classes para o Tema Escuro */
+/* CLASSES DO TEMA ESCURO (JavaScript) */
 body.dark-mode {
     background-color: #1e1e1e;
     color: #f4f7f6;
@@ -28,7 +39,7 @@ body.dark-mode .project-card {
     border-color: #444;
 }
 
-/* Menu de Navegação Fixo */
+/* MENU DE NAVEGAÇÃO (FIXO NO TOPO) */
 header {
     position: fixed;
     top: 0;
@@ -38,9 +49,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 15px 5%; 
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
 .menu ul {
@@ -49,104 +60,173 @@ header {
 }
 
 .menu ul li {
-    margin-right: 20px;
+    margin-right: 25px;
 }
 
 .menu ul li a {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s;
-    padding: 5px 10px;
+    font-weight: 600;
+    transition: color 0.2s, border-bottom 0.2s;
+    padding-bottom: 5px;
+    font-size: 25px;
 }
 
-/* Destaque para a página atual */
+/* Destaque para a página ativa e efeito Hover */
 .menu ul li a.active, .menu ul li a:hover {
     color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
 }
 
 #theme-toggle {
-    padding: 8px 12px;
+    padding: 8px 16px;
     cursor: pointer;
     background-color: #fff;
-    border: none;
-    border-radius: 4px;
+    color: #004080;
+    border: 2px solid #fff;
+    border-radius: 20px; /* Botão mais arredondado e moderno */
     font-weight: bold;
+    font-size: 25px;
+    transition: all 0.2s;
 }
 
-/* Conteúdo das Seções */
+#theme-toggle:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+/* CONTEÚDO PRINCIPAL (ÁREA DA NOTA) */
+main {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;   
+    align-items: center;      
+    justify-content: flex-start; 
+    padding: 60px 40px;
+}
+
 .section-content {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
+    width: 100%;
+    max-width: 1100px;        
+    background: white; 
+    padding: 50px 60px;       
+    border-radius: 12px;      
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+    transition: background-color 0.3s;
+}
+
+/* Ajuste do container quando estiver no modo escuro */
+body.dark-mode .section-content {
+    background: #252525;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .section-content h2 {
-    margin-bottom: 20px;
-    border-bottom: 2px solid #004080;
-    padding-bottom: 5px;
+    font-size: 50px;
+    color: #004080;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #ffcc00; 
+    padding-bottom: 12px;
 }
 
-/* Grid do Portfólio */
+body.dark-mode .section-content h2 {
+    color: #ffcc00;
+    border-bottom-color: #004080;
+}
+
+.section-content p {
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+/* Estilos específicos para listas (Página de Formação) */
+.section-content ul {
+    list-style-position: inside;
+    margin-left: 10px;
+}
+
+.section-content li {
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
+/* GRID DO PORTFÓLIO */
 .projects-grid {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .project-card {
-    background: white;
-    padding: 15px;
-    border: 1px solid #ddd;
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
     border-radius: 6px;
     flex: 1 1 calc(50% - 20px);
-    min-width: 250px;
+    min-width: 280px;
+    transition: transform 0.2s;
 }
 
-/* Formulário de Contato */
+.project-card a {
+    font-size: 25px;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+}
+
+/* FORMULÁRIO DE CONTATO */
 form {
     display: flex;
     flex-direction: column;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
+    font-size: 25px;
 }
 
 .form-group input, .form-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: #fff;
     color: #333;
+    font-size: 25px;
 }
 
 form button {
-    padding: 12px;
+    padding: 14px;
     background-color: #004080;
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 6px;
+    font-size: 25px;
     cursor: pointer;
     font-weight: bold;
+    transition: background-color 0.2s;
 }
 
 form button:hover {
-    background-color: #003366;
+    background-color: #002d59;
 }
 
+/* RODAPÉ (FOOTER) */
 footer {
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    background-color: #222;
-    color: #fff;
+    padding: 25px;
+    background-color: #1a1a1a;
+    color: #ffffff99;
+    font-size: 0.9rem;
+    width: 100%;
 }
