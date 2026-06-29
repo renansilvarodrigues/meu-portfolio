@@ -15,7 +15,7 @@ body {
     background-color: #f4f7f6;
     color: #333;
     line-height: 1.6;
-    padding-top: 80px; /
+    padding-top: 80px;
     transition: background-color 0.3s, color 0.3s;
 
     /* ESTRUTURA FLEXBOX: Resolve o problema do footer subir */
