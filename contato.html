@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato | Seu Nome</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html">Sobre Mim</a></li>
+          <li><a href="formacao.html">Formação</a></li>
+          <li><a href="portfolio.html">Portfólio</a></li>
+          <li><a href="contato.html" class="active">Contato</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle">Alternar Tema</button>
+    </header>
+
+    <main>
+      <section class="section-content">
+        <h2>Contato</h2>
+        <form id="form-contato">
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input
+              type="text"
+              id="nome"
+              placeholder="Digite seu nome completo"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="seu-email@dominio.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Mensagem:</label>
+            <textarea
+              id="mensagem"
+              rows="5"
+              placeholder="Escreva sua mensagem aqui..."
+            ></textarea>
+          </div>
+
+          <button type="submit">Enviar Mensagem</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Renan Silva Rodrigues. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
